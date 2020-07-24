@@ -7,37 +7,54 @@ import static org.junit.jupiter.api.Assertions.*;
 class ConditionerTest {
 
     @Test
-    void increaseCurrentTemperature() {
-        Conditioner setCurrentTemp = new Conditioner();
-        Conditioner onConditioner = new Conditioner();
-        int inceCurrent = setCurrentTemp.getCurrentTemperature();
-        boolean onCon = onConditioner.isOn();
-        setCurrentTemp.increaseCurrentTemperature();
-        onConditioner.setOn(onConditioner.isOn());
-        assertEquals(inceCurrent + 1, setCurrentTemp.getCurrentTemperature());
+    void shouldIncreaseCurrentTemperature() {
+          Conditioner conditioner = new Conditioner();
+        int inceCurrent = conditioner.getCurrentTemperature();
+        String expected = "KoHb";
+        conditioner.setName(expected);
+        assertEquals(expected, conditioner.getName());
+
+        boolean on = true;
+        conditioner.setOn(on);
+        assertEquals(on,conditioner.isOn());
+
+        conditioner.increaseCurrentTemperature();
+        assertEquals(inceCurrent + 1, conditioner.getCurrentTemperature());
     }
 
     @Test
-    void decreaseCurrentTemperature() {
-        Conditioner setCurrentTempyr = new Conditioner();
-        int inceCurrente = setCurrentTempyr.getCurrentTemperature();
-        setCurrentTempyr.decreaseCurrentTemperature();
-        assertEquals(inceCurrente - 1, setCurrentTempyr.getCurrentTemperature());
+    void shouldDecreaseCurrentTemperature() {
+        Conditioner setCurrentTemp = new Conditioner();
+        int inceCurrente = setCurrentTemp.getCurrentTemperature();
+        setCurrentTemp.decreaseCurrentTemperature();
+        assertEquals(inceCurrente - 1, setCurrentTemp.getCurrentTemperature());
+
+        boolean on = true;
+        setCurrentTemp.setOn(on);
+        assertEquals(on,setCurrentTemp.isOn());
     }
     @Test
-    void increaseCurrentMaxTemperature() {
+    void shouldIncreaseCurrentMaxTemperature() {
         Conditioner currentMax = new Conditioner();
         currentMax.setCurrentTemperature(currentMax.getMaxTemperature());
         currentMax.increaseCurrentTemperature();
         assertEquals(currentMax.getMaxTemperature(), currentMax.getCurrentTemperature());
+
+        boolean on = true;
+        currentMax.setOn(on);
+        assertEquals(on,currentMax.isOn());
     }
     @Test
-    void decreaseCurrentMinTemperature() {
+    void shouldDecreaseCurrentMinTemperature() {
         Conditioner currentMin = new Conditioner();
         currentMin.setCurrentTemperature(currentMin.getMinTemperature());
         currentMin.decreaseCurrentTemperature();
         assertEquals(currentMin.getMinTemperature(), currentMin.getCurrentTemperature());
-    }
 
+        boolean on = true;
+        currentMin.setOn(on);
+        assertEquals(on,currentMin.isOn());
+
+    }
 
 }
