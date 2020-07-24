@@ -8,13 +8,21 @@ class ConditionerTest {
 
     @Test
     void increaseCurrentTemperature() {
-        Conditioner setCurrentTemp = new Conditioner();
-        Conditioner onConditioner = new Conditioner();
-        int inceCurrent = setCurrentTemp.getCurrentTemperature();
-        boolean onCon = onConditioner.isOn();
-        setCurrentTemp.increaseCurrentTemperature();
-        onConditioner.setOn(onConditioner.isOn());
-        assertEquals(inceCurrent + 1, setCurrentTemp.getCurrentTemperature());
+          Conditioner nameConditioner = new Conditioner();
+        int inceCurrent = nameConditioner.getCurrentTemperature();
+        String expected = "KoHb";
+        nameConditioner.setName(expected);
+        assertEquals(expected, nameConditioner.getName());
+
+        boolean on = true;
+        nameConditioner.setOn(on);
+        assertEquals(on,nameConditioner.isOn());
+
+
+        nameConditioner.increaseCurrentTemperature();
+
+
+        assertEquals(inceCurrent + 1, nameConditioner.getCurrentTemperature());
     }
 
     @Test
@@ -38,6 +46,4 @@ class ConditionerTest {
         currentMin.decreaseCurrentTemperature();
         assertEquals(currentMin.getMinTemperature(), currentMin.getCurrentTemperature());
     }
-
-
 }

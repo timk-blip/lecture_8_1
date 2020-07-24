@@ -1,11 +1,11 @@
 package ru.netology;
 
 public class Conditioner {
-    private String name;
+    private String name = "KoHb";
     private int maxTemperature = 25;
     private int minTemperature = 10;
     private int currentTemperature = 15;
-    private boolean on = false;
+    private boolean on = true;
 
     public String getName() {
         return name;
@@ -56,26 +56,20 @@ public class Conditioner {
 //        }
 //    }
     public void increaseCurrentTemperature() {
-        if (on = true) {
             if (currentTemperature < maxTemperature) {
                 currentTemperature++;
             } else
                 return;
         }
-        else
-            return;
-    }
+
 
     public void decreaseCurrentTemperature() {
-        if (on = true) {
+
             if (currentTemperature > minTemperature) {
                 currentTemperature--;
             } else
                 return;
         }
-        else
-            return;
-    }
 
 
     public boolean isOn() {
