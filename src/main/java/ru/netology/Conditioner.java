@@ -5,6 +5,7 @@ public class Conditioner {
     private int maxTemperature = 25;
     private int minTemperature = 10;
     private int currentTemperature = 16;
+
     private boolean on = true;
 
     public String getName() {
