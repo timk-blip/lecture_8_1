@@ -8,7 +8,7 @@ class ConditionerTest {
 
     @Test
     void shouldIncreaseCurrentTemperature() {
-          Conditioner conditioner = new Conditioner();
+        Conditioner conditioner = new Conditioner();
         int inceCurrent = conditioner.getCurrentTemperature();
         String expected = "KoHb";
         conditioner.setName(expected);
@@ -16,7 +16,7 @@ class ConditionerTest {
 
         boolean on = true;
         conditioner.setOn(on);
-        assertEquals(on,conditioner.isOn());
+        assertEquals(on, conditioner.isOn());
 
         conditioner.increaseCurrentTemperature();
         assertEquals(inceCurrent + 1, conditioner.getCurrentTemperature());
@@ -24,15 +24,16 @@ class ConditionerTest {
 
     @Test
     void shouldDecreaseCurrentTemperature() {
-        Conditioner setCurrentTemp = new Conditioner();
-        int inceCurrente = setCurrentTemp.getCurrentTemperature();
-        setCurrentTemp.decreaseCurrentTemperature();
-        assertEquals(inceCurrente - 1, setCurrentTemp.getCurrentTemperature());
+        Conditioner setCurrentTempyr = new Conditioner();
+        int inceCurrente = setCurrentTempyr.getCurrentTemperature();
+        setCurrentTempyr.decreaseCurrentTemperature();
+        assertEquals(inceCurrente - 1, setCurrentTempyr.getCurrentTemperature());
 
         boolean on = true;
-        setCurrentTemp.setOn(on);
-        assertEquals(on,setCurrentTemp.isOn());
+        setCurrentTempyr.setOn(on);
+        assertEquals(on, setCurrentTempyr.isOn());
     }
+
     @Test
     void shouldIncreaseCurrentMaxTemperature() {
         Conditioner currentMax = new Conditioner();
@@ -42,8 +43,9 @@ class ConditionerTest {
 
         boolean on = true;
         currentMax.setOn(on);
-        assertEquals(on,currentMax.isOn());
+        assertEquals(on, currentMax.isOn());
     }
+
     @Test
     void shouldDecreaseCurrentMinTemperature() {
         Conditioner currentMin = new Conditioner();
@@ -53,7 +55,32 @@ class ConditionerTest {
 
         boolean on = true;
         currentMin.setOn(on);
-        assertEquals(on,currentMin.isOn());
+        assertEquals(on, currentMin.isOn());
+
+    }
+
+    @Test
+    void shouldSetCurrentTemperatureUpBranchElse() {
+        Conditioner conditioner = new Conditioner();
+        boolean on = true;
+        conditioner.setOn(on);
+        assertEquals(on, conditioner.isOn());
+
+        conditioner.setCurrentTemperature(26);
+        assertEquals(25, conditioner.getMaxTemperature());
+    }
+
+    @Test
+    void shouldSetCurrentTemperatureDownBranchElse() {
+        Conditioner conditioner = new Conditioner();
+        boolean on = true;
+        conditioner.setOn(on);
+        assertEquals(on, conditioner.isOn());
+
+        conditioner.setCurrentTemperature(9);
+        conditioner.decreaseCurrentTemperature();
+        assertEquals(10, conditioner.getMinTemperature());
+
 
     }
 
