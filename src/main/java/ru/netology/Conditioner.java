@@ -51,7 +51,7 @@ public class Conditioner {
     public void increaseCurrentTemperature() {
             if (currentTemperature < maxTemperature) {
                 currentTemperature++;
-            } else
+            } else{}
                 return;
         }
 
@@ -60,7 +60,7 @@ public class Conditioner {
 
             if (currentTemperature > minTemperature) {
                 currentTemperature--;
-            } else
+            } else{}
                 return;
         }
 
